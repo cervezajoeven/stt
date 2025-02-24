@@ -1,0 +1,18 @@
+STT/
+├── db/
+│   └── firebase.js
+├── node_modules/
+├── public/
+│   ├── js/
+│   │   └── create_stt.js
+│   ├── create_stt.html
+│   ├── index.html
+│   ├── list_stt.html
+│   └── styles.css
+├── routes/
+│   └── stt.js
+├── .env
+├── folder_structure.txt
+├── index.js
+├── package-lock.json
+└── package.json

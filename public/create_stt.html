@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create New STT</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <!-- Select2 Bootstrap Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-theme@0.1.0-beta.10/dist/select2-bootstrap.min.css" />
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Create New STT</h1>
+    <form id="sttForm" action="/stt/create" method="POST">
+      <!-- Machine SKU -->
+      <div class="form-group">
+        <label for="machine_sku">Machine SKU</label>
+        <input type="text" class="form-control" id="machine_sku" name="machine_sku" required>
+      </div>
+      <!-- Machine Name -->
+      <div class="form-group">
+        <label for="machine_name">Machine Name</label>
+        <input type="text" class="form-control" id="machine_name" name="machine_name" required>
+      </div>
+      <!-- Entry Type -->
+      <div class="form-group">
+        <label for="entry_type">Entry Type</label>
+        <select class="form-control" id="entry_type" name="entry_type" required onchange="toggleEntryType()">
+          <option value="" disabled selected>Select Entry Type</option>
+          <option value="new">New</option>
+          <option value="old">Old</option>
+        </select>
+      </div>
+      <!-- Old Entry: STT Batch ID -->
+      <div class="form-group" id="stt_batch_id_group" style="display: none;">
+        <label for="stt_batch_id">STT Batch ID</label>
+        <select class="form-control select2-dropdown" id="stt_batch_id" name="stt_batch_id">
+          <option value="" disabled selected>Select Batch ID</option>
+          <!-- Options will be populated via AJAX -->
+        </select>
+      </div>
+      <!-- New Entry: Additional Fields -->
+      <div id="new_entry_fields" style="display: none;">
+        <!-- Frequency -->
+        <div class="form-group">
+          <label for="frequency">Frequency</label>
+          <select class="form-control" id="frequency" name="frequency" required>
+            <option value="" disabled selected>Select Frequency</option>
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="12">12</option>
+          </select>
+        </div>
+        <!-- Start Month -->
+        <div class="form-group">
+          <label for="month_start">Start Month</label>
+          <select class="form-control" id="month_start" name="month_start" required>
+            <option value="" disabled selected>Select Start Month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+        <!-- Send To Type -->
+        <div class="form-group">
+          <label for="send_to_type">Send To Type</label>
+          <select class="form-control" id="send_to_type" name="send_to_type" onchange="toggleSendToField()">
+            <option value="maropost_id" selected>Maropost User</option>
+            <option value="email">Email</option>
+          </select>
+        </div>
+        <!-- Send To Field -->
+        <div class="form-group" id="send_to_group">
+          <label for="send_to">Send To</label>
+          <select class="form-control select2-dropdown" id="send_to_dropdown" name="send_to">
+            <option value="" disabled selected>Select Maropost User</option>
+          </select>
+          <input type="email" class="form-control" id="send_to_email" name="send_to" placeholder="Enter email" style="display: none;">
+        </div>
+        <!-- Invoice To Type -->
+        <div class="form-group">
+          <label for="invoice_to_type">Invoice To Type</label>
+          <select class="form-control" id="invoice_to_type" name="invoice_to_type" onchange="toggleInvoiceToField()">
+            <option value="maropost_id" selected>Maropost User</option>
+            <option value="email">Email</option>
+          </select>
+        </div>
+        <!-- Invoice To Field -->
+        <div class="form-group" id="invoice_to_group">
+          <label for="invoice_to">Invoice To</label>
+          <select class="form-control select2-dropdown" id="invoice_to_dropdown" name="invoice_to">
+            <option value="" disabled selected>Select Maropost User</option>
+          </select>
+          <input type="email" class="form-control" id="invoice_to_email" name="invoice_to" placeholder="Enter email" style="display: none;">
+        </div>
+      </div>
+      <!-- Notes -->
+      <div class="form-group">
+        <label for="stt_notes">Notes</label>
+        <textarea class="form-control" id="stt_notes" name="stt_notes" rows="4"></textarea>
+      </div>
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-success btn-block">Create STT</button>
+      <a href="/stt" class="btn btn-secondary btn-block">Back</a>
+    </form>
+  </div>
+  <!-- jQuery (required for Select2) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Select2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <!-- Custom JS -->
+  <script src="/js/create_stt.js"></script>
+</body>
+</html>

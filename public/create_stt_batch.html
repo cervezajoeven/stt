@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New STT Batch</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <!-- Select2 Bootstrap Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-theme@0.1.0-beta.10/dist/select2-bootstrap.min.css">
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Create New STT Batch</h1>
+
+    <form action="/stt_batch/create" method="POST">
+      <!-- Company Name -->
+      <div class="form-group">
+        <label for="company_name">Company Name</label>
+        <input type="text" class="form-control" id="company_name" name="company_name" required>
+      </div>
+
+      <!-- Send To Type -->
+      <div class="form-group">
+        <label for="send_to_type">Send To Type</label>
+        <select class="form-control" id="send_to_type" name="send_to_type" required onchange="toggleSendToField()">
+          <option value="" disabled selected>Select Type</option>
+          <option value="maropost_id">Maropost User</option>
+          <option value="email">Email</option>
+        </select>
+      </div>
+
+      <!-- Dynamic Send To Field (Dropdown or Email Input) -->
+      <div class="form-group" id="send_to_group" style="display: none;">
+        <label for="send_to">Send To</label>
+        <select class="form-control select2-dropdown" id="send_to_dropdown" name="send_to" style="display: none;" required>
+          <option value="" disabled selected>Select Maropost User</option>
+        </select>
+        <input type="email" class="form-control" id="send_to_email" name="send_to" style="display: none;" required>
+      </div>
+
+      <!-- Invoice To Type -->
+      <div class="form-group">
+        <label for="invoice_to_type">Invoice To Type</label>
+        <select class="form-control" id="invoice_to_type" name="invoice_to_type" required onchange="toggleInvoiceToField()">
+          <option value="" disabled selected>Select Type</option>
+          <option value="maropost_id">Maropost User</option>
+          <option value="email">Email</option>
+        </select>
+      </div>
+
+      <!-- Dynamic Invoice To Field (Dropdown or Email Input) -->
+      <div class="form-group" id="invoice_to_group" style="display: none;">
+        <label for="invoice_to">Invoice To</label>
+        <select class="form-control select2-dropdown" id="invoice_to_dropdown" name="invoice_to" style="display: none;" required>
+          <option value="" disabled selected>Select Maropost User</option>
+        </select>
+        <input type="email" class="form-control" id="invoice_to_email" name="invoice_to" style="display: none;" required>
+      </div>
+      
+      <!-- Month Start -->
+      <div class="form-group">
+        <label for="month_start">Start Month</label>
+        <select class="form-control" id="month_start" name="month_start" required>
+          <option value="" disabled selected>Select Start Month</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+      </div>
+
+      <!-- Frequency -->
+      <div class="form-group">
+        <label for="frequency">Frequency</label>
+        <input type="number" class="form-control" id="frequency" name="frequency" required>
+      </div>
+
+      <!-- STT Batch Notes (Optional) -->
+      <div class="form-group">
+        <label for="stt_batch_notes">STT Batch Notes</label>
+        <textarea class="form-control" id="stt_batch_notes" name="stt_batch_notes" rows="4"></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-success btn-block">Create STT Batch</button>
+      <a href="/stt_batch" class="btn btn-secondary btn-block">Back</a>
+    </form>
+  </div>
+
+  <!-- jQuery (required for Select2) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Select2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="/js/create_stt_batch.js"></script>
+</body>
+</html>

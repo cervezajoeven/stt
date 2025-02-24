@@ -1,0 +1,29 @@
+{
+  "NetoAPISummary": {
+    "endpoint": "https://www.rapidsupplies.com.au/do/WS/NetoAPI",
+    "method": "POST",
+    "headers": {
+      "Accept": "*/*",
+      "Accept-Encoding": "gzip, deflate, br",
+      "Connection": "keep-alive",
+      "NETOAPI_ACTION": "GetCustomer",
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "NETOAPI_USERNAME": "Joeven",
+      "NETOAPI_KEY": "wLp4t8t6ra3KGUss4SpMiCnoaki5OKY"
+    },
+    "requestBody": {
+      "Filter": {
+        "Active": true,
+        "OutputSelector": [
+          "Username",
+          "EmailAddress",
+          "BillingAddress"
+        ]
+      }
+    },
+    "purpose": "Retrieve active customers from Neto, returning specified fields.",
+    "authentication": "The request is authenticated with NETOAPI_USERNAME and NETOAPI_KEY in the headers.",
+    "action": "GetCustomer"
+  }
+}

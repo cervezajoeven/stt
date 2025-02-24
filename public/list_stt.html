@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STT List</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" />
+  <style>
+    .container-fluid {
+      padding: 2rem;
+    }
+    .table {
+      table-layout: fixed;
+      width: 100%;
+    }
+    .table th, .table td {
+      white-space: normal;
+      word-wrap: break-word;
+    }
+    /* You can adjust specific column widths if needed */
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <h1 class="text-center mb-4">STT List</h1>
+    <!-- Navigation buttons -->
+    <div class="d-flex justify-content-end mb-3">
+      <a href="/calendar/" class="btn btn-primary mr-2">Show Calendar</a>
+      <a href="/stt/create" class="btn btn-primary mr-2">Add New STT</a>
+      <a href="/stt_batch" class="btn btn-secondary">Show Batches</a>
+    </div>
+    <!-- Notification container -->
+    <div id="notification"></div>
+    <!-- Table container -->
+    <div class="table-responsive">
+      <table id="sttTable" class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Machine SKU</th>
+            <th>Machine Name</th>
+            <th>Send To</th>
+            <th>Invoice To</th>
+            <th>Frequency</th>
+            <th>Start Month</th>
+            <th>Entry Type</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be injected via AJAX -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- jQuery, Bootstrap & DataTables scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+  <!-- Custom JS for STT list -->
+  <script src="/js/list_stt.js"></script>
+</body>
+</html>
